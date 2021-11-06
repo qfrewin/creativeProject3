@@ -1,14 +1,47 @@
 <template>
   <div id="app">
+    <div class="header-container">
+      <img src="/images/logo_light.svg" width="300px">
+      <div class="links">
+        <router-link to="/">
+          <button>Home</button>
+        </router-link>
+        <router-link to="/about">
+          <button>About</button>
+        </router-link>
+        <router-link to="/rotations">
+          <button>Rotations</button>
+        </router-link>
+        <router-link to="/asignments">
+          <button>Asingments</button>
+        </router-link>
+        <router-link to="/schedules">
+          <button>Schedules</button>
+        </router-link>
+      </div>
+    </div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+
+    <div class="footer-container">
+      <div class="links">
+        <a href="https://github.com/qfrewin/creativeProject3"><button>GitHub</button></a>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,5 +61,55 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: auto;
+  width: 100%;
+  background-color: #0abab4;
+  padding: 10px 50px;
+}
+
+.links {
+  grid-area: side;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.links
+button {
+  padding: 20px;
+  background-color: transparent;
+  font-size: 18px;
+  font-weight: bold;
+}
+.header-container
+button {
+  color: #737373;
+}
+.footer-container
+button {
+  color: #daf5f4;
+}
+.header-container
+button:hover {
+  background-color: #daf5f4;
+}
+.footer-container
+button:hover {
+  background-color: #0abab4;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  background-color: #356e6c;
+  padding: 10px 50px;
 }
 </style>
