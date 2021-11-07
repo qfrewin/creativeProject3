@@ -1,15 +1,37 @@
 <template>
 <div>
   <p>Asignments page</p>
-  <div id="table-asignments" v-html="createTable()">
+
+  <div class="wrapper">
+
+    <div class="new-table">
+      <table>
+        <div class="rows" v-for="(row, i) in table">
+          <tr>
+            <div v-for="(col, j) in row">
+              <td style="transparent">
+                <input
+                  v-model="userText"
+                  style="background-color:cellColor(i, j)"
+                  v-on:keyup="updateName(i, j)">
+                </input>
+              </td>
+            </div>
+          </tr>
+        </div>
+      </table>
+    </div>
+
   </div>
+
 </div>
-
-
 </template>
 
 
 <script>
+//<div id="table-asignments" v-html="createTable()"></div>
+
+
 export default {
   name: 'AsignmentsPage',
 
@@ -18,8 +40,18 @@ export default {
     tableColors: Object,
     table: Array
   },
+/*
+  data() {
+    return {
+      this.userText: '',
+    }
+  },*/
 
   methods: {
+    getValueOnTable(row, col) {
+      return this.table[row][col];
+    },
+    /*
     createTable() {
       var results = "<table><tr>";
       for (var i = 0; i < this.table[0].length; i++) {
@@ -50,8 +82,9 @@ export default {
       results += "</table>";
       console.log(results);
       return results;
-    },
-    cellColor(row, col, value) {
+    },*/
+    cellColor(row, col) {
+      var value = this.table[row][col];
       var color;
       if ((row % 2) == 0) {
         color = this.tableColors.even;
@@ -73,15 +106,26 @@ export default {
       }
       return color;
     },
+    updateName() {
+      console.log("worked");
+      return "";
+    },
+    updateName(row, col) {
+      console.log(this.table[row][col]);
+      this.table[row][col].name = this.userText;
+    }
   }
-},
-
-
-
+}
 
 </script>
 
 <style>
+
+.break {
+  display: flex;
+  height: 400px;
+  width: 100%;
+}
 
 td {
   border: black solid 1px;

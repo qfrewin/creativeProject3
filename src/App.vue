@@ -6,25 +6,23 @@
         <router-link to="/">
           <button>Home</button>
         </router-link>
-        <router-link to="/about">
-          <button>About</button>
-        </router-link>
         <router-link to="/rotations">
           <button>Rotations</button>
         </router-link>
         <router-link to="/asignments">
-          <button>Asingments</button>
+          <button>Asignments</button>
         </router-link>
         <router-link to="/schedules">
           <button>Schedules</button>
         </router-link>
       </div>
     </div>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
+    
+
+    <div class="content">
+      <router-view/>
     </div>
-    <router-view/>
 
     <div class="footer-container">
       <div class="links">
@@ -40,6 +38,14 @@
   padding: 0px;
   border: 0px;
   box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: scroll;
+  height: auto;
 }
 
 #app {

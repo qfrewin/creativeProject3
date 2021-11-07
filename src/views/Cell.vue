@@ -1,19 +1,19 @@
 <template>
 
 <div>
-  <CellFormat :classes="classes" :tableColors="tableColors" :table="table" :timeBlocks="timeBlocks"/>
+  <CellContent :classes="classes" :tableColors="tableColors" :table="table" :timeBlocks="timeBlocks"/>
 </div>
 
 
 </template>
 
 <script>
-  import CellFormat from "../components/CellFormat.vue"
+  import CellContent from "../components/CellContent.vue"
   export default {
     name: 'Cell',
 
     components: {
-      CellFormat
+      CellContent
     },
 
     computed: {
@@ -26,6 +26,9 @@
       table() {
         return this.$root.$data.tables.asignmentTable;
       },
+      timeBlocks() {
+        return this.$root.$data.timeBlocks;
+      }
     },
 
   }

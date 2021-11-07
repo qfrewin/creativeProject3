@@ -39,7 +39,7 @@ function createAsignmentTable() {
     var row = [];
     for (var j = 0; j < classInfo.length + 1; j++) {
       if (j == 0) {
-        row.push({time: settings.timeBlocks[i], color: ""})
+        row.push({name: settings.timeBlocks[i], color: ""})
       }
       else {
         row.push({name: "", color: ""});
